@@ -1,18 +1,21 @@
 ---
 name: shark
 description: >-
-  Brutally honest product/idea evaluator. Give it a document describing a product,
-  app, startup, feature, or concept — what it is, how it works, how it's marketed,
-  and its current status — and it returns a full "Shark Tank"-style teardown: an
+  Brutally honest product/idea evaluator and strategist. Give it a description of a
+  product, app, startup, feature, or concept — what it is, how it works, how it's
+  marketed, and its current status — and it returns a candid, scored teardown: an
   up-front verdict, a scored ASCII scorecard rating every dimension out of 10, an
   unfiltered read on the concept and the execution, a market-fit critique, and
-  recommendations ranked by impact-per-effort. Use this whenever the user says
-  "shark tank this", "shark grill", "shark this idea", "roast my product/startup/
-  concept", "give me a brutal review of this idea", "evaluate this product idea
-  honestly", "is this idea any good", or otherwise wants a candid, scored,
-  investor-style evaluation of a product or business idea — even if they don't say
-  the word "shark". Prefer this over a generic "here are some thoughts" response
-  whenever the user hands over an idea and asks how good it is.
+  recommendations ranked by impact-per-effort. It also has a deeper "mentor" mode
+  that researches the real competitive landscape, finds the market gaps, and builds
+  a concrete strategic action plan. Use this whenever the user says "shark tank
+  this", "shark grill", "shark mentor", "shark guide", "shark this idea", "roast my
+  product/startup/concept", "give me a brutal review of this idea", "evaluate this
+  idea honestly", "is this idea any good", or wants a candid scored evaluation, a
+  competitive/market analysis of their idea, or a strategic action plan for where to
+  take it next — even if they don't say the word "shark". Prefer this over a generic
+  "here are some thoughts" response whenever the user hands over an idea and asks how
+  good it is or what to do next.
 ---
 
 # Shark
@@ -30,19 +33,23 @@ that leaves them building the wrong thing is the one true failure here.
 
 ## Invocation and modes
 
-This skill is invoked either by natural language ("shark tank this idea") or as a
-slash command with a mode as its argument: `/shark tank`, `/shark grill`. Treat
-the argument as the mode:
+Invoke by natural language ("shark tank this idea", "shark mentor my startup") or
+as a slash command with a mode as its argument: `/shark tank`, `/shark grill`,
+`/shark mentor`. Treat the argument as the mode:
 
-- **`tank`** (default) — the full teardown described below. This is also what you
-  do when no mode is given, or when the request is a bare "shark this".
+- **`tank`** (default) — the full teardown. This is also what you do for a bare
+  "shark this" or when no mode is given. The sections from *The core discipline*
+  through *Tone* describe this flow.
 - **`grill`** — an alias for `tank`; identical behavior. It exists so the review
-  can be summoned without the literal phrase "shark tank", and so `tank` can be
-  retired later without changing how the skill works.
-- **Any other / unrecognized argument** — treat the argument text as *the idea or
-  a focusing instruction*, not a mode (e.g. `/shark tank focus on monetization`
-  means run the teardown but weight the money analysis). Never refuse over an
-  unknown mode; default to the full teardown.
+  can be summoned by a second name, and so `tank` can be retired later without
+  changing how the skill works.
+- **`mentor`** (alias **`guide`**) — the deeper strategic mode: research the real
+  market, map the gaps, and build a concrete action plan. See **Mentor / Guide
+  mode** near the end of this document — it has its own flow.
+- **Any other trailing text** — treat it as *the idea itself or a focusing
+  instruction*, not an unknown mode (e.g. `/shark tank focus on monetization` runs
+  the teardown weighted toward the money analysis). Never refuse over an
+  unrecognized argument; default to the tank teardown.
 
 Whatever the mode, the input is the product/idea the user provides (a pasted
 document, a description, or a project you've been building together this session).
@@ -195,6 +202,61 @@ the trade-offs, and say which one you'd actually back.
 The "I'm in / I'm out" verdict — and be willing to split it ("I'm out on this as
 a *business*, in on it as a *product people send each other*"). End with one
 concrete next step so the user knows exactly what to do Monday morning.
+
+## Mentor / Guide mode: market research → strategy → action plan
+
+Where `tank` *judges* the idea, `mentor` helps the user *move it forward*. It
+studies the idea, researches the real market around it, finds where the openings
+are, and ends in a concrete plan. If a `tank` review already happened this session,
+build on it rather than repeating it.
+
+This mode runs in **two turns with a checkpoint in the middle** — you do NOT jump
+straight to a single action plan. The entire point is to surface the real options
+first and let the user pick the direction before you commit a plan to it.
+
+### Turn 1 — research and lay out the paths
+
+1. **Understand the idea.** Restate it in a sentence or two so the user can correct
+   you. Ask 1–3 clarifying questions only if something essential to the strategy is
+   missing (stage, goal, constraints, who it's for). Otherwise proceed.
+
+2. **Research the real landscape.** Actually search the web — do not invent
+   competitors from memory. Find the products already solving this or something
+   adjacent: who they are, how they work, who they serve, how they price and
+   position, and — critically — where they fall short. Cite what you find so the
+   user can dig in. Cover direct competitors *and* the indirect substitute a user
+   reaches for today.
+
+3. **Map the gaps.** From that research, name the unmet needs, underserved
+   segments, and weaknesses common across the incumbents. This is where opportunity
+   lives — be specific, not "they have bad UX."
+
+4. **Position honestly.** For this idea, is the realistic play to **compete
+   head-on** (beat someone at their own game — say why that's winnable, or admit it
+   isn't) or to **fill a gap** (serve a need the incumbents structurally can't or
+   won't)? Often it's a blend — say so, and say which part matters most.
+
+5. **Lay out the strategic paths.** Identify the **2–4 genuinely viable
+   directions** this idea could take. For each: the core bet, who it targets, why it
+   could work, the main risk, and roughly what it costs to pursue. Be honest about
+   which you find strongest, but present the real options — don't pre-collapse the
+   choice for them.
+
+6. **Stop and ask.** End Turn 1 by asking the user which path they lean toward
+   (offer the paths as clear choices; they may blend two or bring their own). Do
+   **not** write the detailed action plan yet — wait for their direction.
+
+### Turn 2 — the detailed action plan (after they choose)
+
+Once the user picks a direction, produce a concrete, sequenced action plan for
+*that* path: the phases or milestones in order, what to build or validate first
+(the cheapest test of the riskiest assumption goes early), what success looks like
+at each step, and the metrics that tell them it's working. Make it specific enough
+that they know what to do next week — not just "someday." Flag the assumptions the
+plan rests on, so they know what would invalidate it.
+
+Keep the same honesty as tank: a plan built on a weak path should say so rather
+than dress it up.
 
 ## Tone
 

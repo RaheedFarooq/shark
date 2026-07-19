@@ -21,6 +21,10 @@ It asks a couple of sharp clarifying questions first, then delivers:
   what to ignore.
 - **The call** — an "I'm in / I'm out" verdict and one concrete next step.
 
+Beyond the teardown, a deeper **mentor mode** researches the real competitive
+landscape for your idea, maps where the market gaps are, lays out the viable
+strategic paths, and — once you pick one — builds a concrete action plan.
+
 ```
 CONCEPT
 Core insight                                    ████████▌░  8.5
@@ -93,6 +97,7 @@ Natural language works just as well:
 | --- | --- |
 | `/shark tank` | The full teardown (default). |
 | `/shark grill` | Identical to `tank` — an alias. |
+| `/shark mentor` | Deep market & competitive research, then a strategic action plan (alias: `/shark guide`). |
 | `/shark tank focus on monetization` | Full teardown, weighted toward the money question. Any trailing text is treated as a focusing instruction. |
 
 ---
@@ -105,6 +110,10 @@ Natural language works just as well:
 2. **Score** — every relevant dimension gets a number out of 10, with a reason.
 3. **Teardown** — verdict, scorecard, concept-vs-execution read, market critique,
    tiered recommendations, and the final call.
+
+For **mentor mode**, Shark instead researches the real market, maps the gaps, lays
+out the viable strategic paths, waits for you to choose one, then writes the
+detailed action plan for it.
 
 The guiding principle: separate the **concept** from the **execution** and name the
 gap between them — because that gap is the part you can act on.

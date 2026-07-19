@@ -8,7 +8,7 @@
     {
       "name": "shark",
       "source": ".",
-      "description": "Brutally honest, Shark Tank-style product/idea evaluator.",
+      "description": "Brutally honest, investor-style product/idea evaluator with a strategic mentor mode.",
       "version": "0.1.0"
     }
   ]

@@ -1,6 +1,6 @@
 {
   "name": "shark",
-  "description": "Brutally honest, Shark Tank-style product/idea evaluator: an up-front verdict, a scored ASCII scorecard, an unfiltered concept-vs-execution read, a market-fit critique, and recommendations ranked by impact-per-effort.",
+  "description": "Brutally honest, investor-style product/idea evaluator: an up-front verdict, a scored scorecard, an unfiltered concept-vs-execution read, a market-fit critique, ranked recommendations, and a deeper mentor mode for competitive research and a strategic action plan.",
   "version": "0.1.0",
   "author": {
     "name": "Raheed Farooq"
