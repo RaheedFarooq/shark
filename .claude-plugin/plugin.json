@@ -1,0 +1,11 @@
+{
+  "name": "shark",
+  "description": "Brutally honest, Shark Tank-style product/idea evaluator: an up-front verdict, a scored ASCII scorecard, an unfiltered concept-vs-execution read, a market-fit critique, and recommendations ranked by impact-per-effort.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Raheed Farooq"
+  },
+  "homepage": "https://github.com/RaheedFarooq/shark",
+  "repository": "https://github.com/RaheedFarooq/shark",
+  "license": "MIT"
+}

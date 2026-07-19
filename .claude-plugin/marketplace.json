@@ -1,0 +1,15 @@
+{
+  "name": "shark",
+  "owner": {
+    "name": "Raheed Farooq"
+  },
+  "description": "The Shark skill — a brutally honest product/idea evaluator for Claude Code.",
+  "plugins": [
+    {
+      "name": "shark",
+      "source": ".",
+      "description": "Brutally honest, Shark Tank-style product/idea evaluator.",
+      "version": "0.1.0"
+    }
+  ]
+}
